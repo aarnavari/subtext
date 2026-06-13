@@ -56,6 +56,8 @@ export default function StarsPage() {
       (acc, item) => {
         const folder = item.name.trim();
 
+        if (!folder) return acc;
+
         if (!acc[folder]) {
           acc[folder] = [];
         }
@@ -97,7 +99,7 @@ export default function StarsPage() {
               return (
                 <Link
                   key={folder}
-                  href={`/stars/${encodeURIComponent(folder)}`}
+                  href={`/stars/folder?name=${encodeURIComponent(folder)}`}
                   className="group block border-t border-black/10 pt-5 transition hover:opacity-75"
                 >
                   <div className="flex items-start justify-between gap-6">
